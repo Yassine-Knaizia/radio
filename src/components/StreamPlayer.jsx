@@ -12,7 +12,6 @@ const StreamPlayer = () => {
   const audioRef = useRef(null);
 
   useEffect(() => {
-    // Function to initialize the peer connection
     const initializePeer = async () => {
       try {
         const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -23,15 +22,7 @@ const StreamPlayer = () => {
           console.log('Sending signal to peer:', signal);
         });
 
-        newPeer.on('stream', remoteStream => {
-          console.log('Received audio stream from peer:', remoteStream);
-          if (audioRef.current) {
-            audioRef.current.srcObject = remoteStream;
-          }
-        });
-
         setStreaming(true);
-        console.log('streaming', streaming)
       } catch (error) {
         console.error('Error accessing microphone:', error);
       }
@@ -49,6 +40,25 @@ const StreamPlayer = () => {
       }
     };
   }, [streaming, peer]);
+
+  useEffect(() => {
+    const handleStream = remoteStream => {
+      console.log('Received audio stream from peer:', remoteStream);
+      if (audioRef.current) {
+        audioRef.current.srcObject = remoteStream;
+      }
+    };
+
+    if (peer) {
+      peer.on('stream', handleStream);
+    }
+
+    return () => {
+      if (peer) {
+        peer.off('stream', handleStream);
+      }
+    };
+  }, [peer]);
 
   const toggleStreaming = () => {
     if (streaming) {
