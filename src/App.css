@@ -1,0 +1,121 @@
+#pp-img {
+  height: 130px;
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and box-shadow */
+
+}
+
+#pp-img:hover {
+  transform: scale(1.1); /* Scale up the image on hover */
+}
+
+.home {
+  background-image: url("../src/assets/imgs/newBack.jpg");
+  background-size: 100% 100% ;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* css for cards */
+
+.card {
+  height: 90px;
+  width: 377px;
+  border-radius: 10px;
+  transition: 0.4s ease-out;
+  font-size: 110%;
+  padding: 1.2rem;
+  text-align: center;
+  background: linear-gradient(-90deg, #9d4e47 55%, rgba(221, 232, 11, 0) 85%);
+  margin-top: 1rem;
+}
+
+.player-controls{
+  margin-top: 3.5rem;
+  text-align: center  ;
+}
+
+.card:hover {
+  transform: scale(1.1); /* Scale up the image on hover */
+
+}
+
+.title {
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+}
+
+/* css of footer */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.footer {
+  position: fixed;
+  width: 100%;
+  min-height: 100px;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  bottom: 0;
+  text-align: center;
+}
+
+.social-icon,
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.social-icon__link {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0 15px;
+  display: inline-block;
+  transition: 0.5s;
+}
+
+.social-icon__link:hover {
+  transform: translateY(-10px);
+}
+
+.footer p {
+  color: #fff;
+  margin: 15px 0 10px 0;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+/* css for rs logos */
+.sm-logo {
+  height: 40px;
+  border-radius: 10px;
+}
+
+.giphy {
+  box-shadow: rgb(231 61 61 / 49%) 0px 30px 60px -12px inset, rgb(231 61 61 / 49%) 0px 0px 20px 14px;
+  height: 150px;
+  margin-top: 16.5%;
+  border-radius: 80px;
+  opacity: 0.85;
+}
+@media screen and (max-width: 768px){
+  .giphy{
+    margin-top: 41.5%;
+    height: 120px;
+  }  
+}
+
